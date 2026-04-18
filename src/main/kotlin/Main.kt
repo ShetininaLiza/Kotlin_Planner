@@ -1,5 +1,7 @@
 import helper.Third
+import org.example.model.*
 import java.lang.System.exit
+import java.time.LocalDate
 import java.util.Scanner
 
 val scanner = Scanner(System.`in`)
@@ -52,20 +54,18 @@ fun checkKey(key:String){
         var data = dataKey.get(key);
         if(data?.first.equals("c")){
             System.out.println("CREATE")
-            /*
             System.out.print("Введите текст: ");
-            var text = in.next();
+            var text = scanner.next();
             var date = LocalDate.now();
-            Record record = new Note();
-            if(data.second().equals("N")){
-                //record = new Note();
+            lateinit var record: Record
+            if(data?.second.equals("N")){
+                record = Note()
                 record.createRecord(text, date);
-            }else if(data.second().equals("M")){
-                record = new Member();
+            }else if(data?.second.equals("M")){
+                record = Member()
                 record.createRecord(text, date);
             }
-            saveRecord(record);
-            */
+            saveRecord(record)
         }
         if(data?.first.equals("p")){
             println("PRINT")
@@ -81,4 +81,7 @@ fun checkKey(key:String){
             exit(0)
         }
     }
+}
+fun saveRecord(record : Record){
+    //workWithData.writeRecord(record)
 }
